@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const collectionController = require("../controllers/collectionController");
+const collectionController = require("./collection.controller");
+
 router.post("/books", collectionController.createBooksCollection);
 router.post("/authors", collectionController.createAuthorsCollection);
 router.post("/logs/capped", collectionController.createCappedLogs);

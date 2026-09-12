@@ -1,7 +1,7 @@
-const { getDB } = require("../config/db");
+const { getDB } = require("../../config/database");
 const { ObjectId } = require("mongodb");
 
-//7
+// 7. insert a log, book_id has to be a real ObjectId so aggregate4's $lookup works later
 exports.insertLog = async (req, res) => {
   try {
     const db = getDB();

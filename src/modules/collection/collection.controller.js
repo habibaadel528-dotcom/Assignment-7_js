@@ -1,6 +1,6 @@
-const { getDB } = require("../config/db");
+const { getDB } = require("../../config/database");
 
-//1
+// 1. explicit collection with validation on title
 exports.createBooksCollection = async (req, res) => {
   try {
     const db = getDB();
@@ -25,7 +25,7 @@ exports.createBooksCollection = async (req, res) => {
   }
 };
 
-//2
+// 2. implicit collection, just insert into "authors"
 exports.createAuthorsCollection = async (req, res) => {
   try {
     const db = getDB();
@@ -36,7 +36,7 @@ exports.createAuthorsCollection = async (req, res) => {
   }
 };
 
-//3
+// 3. capped collection "logs", 1MB
 exports.createCappedLogs = async (req, res) => {
   try {
     const db = getDB();
@@ -50,7 +50,7 @@ exports.createCappedLogs = async (req, res) => {
   }
 };
 
-//4
+// 4. index on books.title
 exports.createBooksIndex = async (req, res) => {
   try {
     const db = getDB();

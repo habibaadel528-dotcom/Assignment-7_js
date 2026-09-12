@@ -1,5 +1,6 @@
-const { getDB } = require("../config/db");
-//5
+const { getDB } = require("../../config/database");
+
+// 5. insert one book
 exports.insertOne = async (req, res) => {
   try {
     const db = getDB();
@@ -9,7 +10,8 @@ exports.insertOne = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-//6
+
+// 6. insert many books
 exports.insertBatch = async (req, res) => {
   try {
     const db = getDB();
@@ -19,7 +21,8 @@ exports.insertBatch = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-//8
+
+// 8. update year for a book by title
 exports.updateYearByTitle = async (req, res) => {
   try {
     const db = getDB();
@@ -34,7 +37,7 @@ exports.updateYearByTitle = async (req, res) => {
   }
 };
 
-//9
+// 9. find a book by title
 exports.findByTitle = async (req, res) => {
   try {
     const db = getDB();
@@ -46,7 +49,7 @@ exports.findByTitle = async (req, res) => {
   }
 };
 
-//10
+// 10. find books published between two years
 exports.findByYearRange = async (req, res) => {
   try {
     const db = getDB();
@@ -64,7 +67,7 @@ exports.findByYearRange = async (req, res) => {
   }
 };
 
-//11
+// 11. find books by genre
 exports.findByGenre = async (req, res) => {
   try {
     const db = getDB();
@@ -79,7 +82,7 @@ exports.findByGenre = async (req, res) => {
   }
 };
 
-//12
+// 12. skip 2, limit 3, sort by year desc
 exports.skipLimit = async (req, res) => {
   try {
     const db = getDB();
@@ -96,7 +99,7 @@ exports.skipLimit = async (req, res) => {
   }
 };
 
-//13
+// 13. year stored as int32
 exports.findYearInteger = async (req, res) => {
   try {
     const db = getDB();
@@ -110,7 +113,7 @@ exports.findYearInteger = async (req, res) => {
   }
 };
 
-//14
+// 14. exclude Horror / Science Fiction
 exports.excludeGenres = async (req, res) => {
   try {
     const db = getDB();
@@ -124,7 +127,7 @@ exports.excludeGenres = async (req, res) => {
   }
 };
 
-//15
+// 15. delete books published before a given year
 exports.deleteBeforeYear = async (req, res) => {
   try {
     const db = getDB();
@@ -138,7 +141,7 @@ exports.deleteBeforeYear = async (req, res) => {
   }
 };
 
-//16
+// 16. aggregate: filter after 2000, sort desc
 exports.aggregate1 = async (req, res) => {
   try {
     const db = getDB();
@@ -155,7 +158,7 @@ exports.aggregate1 = async (req, res) => {
   }
 };
 
-//17
+// 17. aggregate: after 2000, only title/author/year
 exports.aggregate2 = async (req, res) => {
   try {
     const db = getDB();
@@ -172,7 +175,7 @@ exports.aggregate2 = async (req, res) => {
   }
 };
 
-//18
+// 18. aggregate: unwind genres
 exports.aggregate3 = async (req, res) => {
   try {
     const db = getDB();
@@ -189,7 +192,7 @@ exports.aggregate3 = async (req, res) => {
   }
 };
 
-//19
+// 19. aggregate: join logs with books
 exports.aggregate4 = async (req, res) => {
   try {
     const db = getDB();
